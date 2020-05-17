@@ -24,20 +24,23 @@ public class Board {
 	}
 	
 	public Piece piece(int row, int column) {
+		//verica se a posição existe ou não.
 		if (!positionExists(row, column)) {
 			throw new BoardException("Position not on the board");
 		}
 		return pieces[row][column];
 	}
 	
-	public Piece piece(Position position) {
+	public Piece piece(Position position) {		
 		if (!positionExists(position)) {
 			throw new BoardException("Position not on the board");
 		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
+	//Metodo para colocar uma peça em uma determinada posi
 	public void placePiece(Piece piece, Position position) {
+		//verifica se já existe uma peça nesta posição
 		if (thereIsAPiece(position)) {
 			throw new BoardException("There is already a piece on position " + position);
 		}
